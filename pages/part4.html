@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<link rel = "stylesheet" type = "text/css" href = "../styles/style.css" />
+		<link rel = "icon" type = "image/x-icon" href = "../images/js-logo.png" />
+		<script src = "../scripts/scripts.js"></script>
+		<script>var numOfImages = 3;</script>
+		<title>DOM</title>
+	</head>
+	
+	<body>
+		<table id = "imageViewer" cellspacing = 0 cellpadding = 0>
+			<tr><td id = "imageViewerTopLine">
+				<table id = "imageViewerTopLineT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td onClick = "zoomOut()"><img src = "../images/zoom-out.png" height = 30 /></td>
+						<td onClick = "zoomIn()"><img src = "../images/zoom-in.png" height = 30 /></td>
+						<td style = "width:100%"></td>
+						<td onClick = "closeImg()"><img src = "../images/exit.png" height = 30 /></td>
+					</tr>
+				</table>
+			</td></tr>
+			<tr><td>
+				<table id = "imageViewerContentT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td class = "arrow" id = "leftArrow" onClick = "gotoPrev()">
+							<img src = "../images/leftArrow.png" style = "width: 50px;" />
+						</td>
+						<td id = "imageViewerImagePlace"></td>
+						<td class = "arrow" id = "rightArrow" onClick = "gotoNext()">
+							<img src = "../images/rightArrow.png" style = "width: 50px;" />
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+		</table>
+		<table id = "page" cellspacing = 0 cellpadding = 0>
+			<tr><td id = "pageTop">
+				<table id = "pageTopT" cellspacing = 0 cellpadding = 0>
+					<tr><td id = "topCaption">
+						<img src = "../images/js-logo.png" style = "height: 100px;" />
+					</td></tr>
+					<tr><td id = "topMenu">
+						<table id = "topMenuT" cellspacing = 0 cellpadding = 0>
+							<tr>
+								<td id = "part1" onClick = "window.open('part1.html', '_self')">Основи</td>
+								<td id = "part2" onClick = "window.open('part2.html', '_self')">Синтаксис</td>
+								<td id = "part4" onClick = "window.open('part4.html', '_self')">DOM</td>
+								<td id = "part5" onClick = "window.open('part5.html', '_self')">Застосування</td>
+								<!-- <td id = "part6" onClick = "window.open('part6.html', '_self')">Література</td> -->
+							</tr>
+						</table>
+					</td></tr>
+				</table>
+			</td></tr>
+			<tr><td id = "pageMiddle">
+				<table id = "pageMiddleT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td id = "leftMenu">
+							<table id = "leftMenuT" cellspacing = 0 cellpadding = 0>
+								<caption>Розділи:</caption>
+								<tr><td><a href = "#section1">Історія розвитку DOM</a></td></tr>
+								<tr><td><a href = "#section2">Обєктна структура</a></td></tr>
+								<tr><td><a href = "#section3">Відносини між вузлами</a></td></tr> 
+								<tr><td><a href = "#section4">DOM Маніпуляції</a></td></tr> 
+								<tr><td><a href = "#section5">Події </a></td></tr> 
+								<tr><td><a href = "#section6">Об'єкт style  </a></td></tr> 
+								<tr><td><a href = "#section7">Ієрархія основних об'єктів javascript</a></td></tr> 
+							</table>
+						</td>
+						<td id = "content">
+							<br />
+							<p><b>Об'єктна модель документа</b>(англ. Document Object Model, DOM) — специфікація прикладного програмного інтерфейсу для роботи зі структурованими документами (як правило, документів XML). Визначається ця специфікація консорціумом W3C.</p>
+							<a name = "section1"></a>
+							<h1 >Історія розвитку DOM</h1>
+							
+							<ul>
+									<li>1996 DOM level 0 давав змого обробляти тільки деякі події і мав доступ до таких обєктів як form link і зображення</li>
+									<li>1997 проміжний  давав змогу змінювати CSS властивості вперше появилось поняття DHTML</li>
+									<li>1998 DOM level 1 був введений в стандарт консорціума W3V </li>
+									<li>2000 DOM level 2 введено метод getElementById модель подій і підтримку XML namespace</li>
+									<li>2004 DOM level 3 добавленно підтримку XPath і обропку подій клавіатури</li>
+								</ul>
+								<a name = "section2"></a>
+							<h1 >Обєктна структура</h1>
+							
+							<p>При відкриті будь-якого  HTML документа браузер завчасно проводить робір його вмісту і на основі цього розбору створює обєктну модель документа або DOM.</br>DOM складається з вложених один в одного ієрархічно розміщених обєктів, які називаються вузлами.Кожен вузол в структурі представляє розміщений на сторінці HTML елемент. Використовуючи DOM ви  можете взаємодіяти (считувати, змінювати, видаляти) елементи HTML документів з скриптів.</br>Нижче розташовується код HTML документа і DOM, яка б була створена браузером на основі цього коду:</p>
+                                     <xmp> 
+<html>
+ <head>
+  <title>HTML DOM</title>
+ </head>
+ <body>
+  <h1>HTML DOM.</h1>
+  <p style="color:green">Привет всем.</p>
+ </body>
+</html>
+									
+									 </xmp>
+
+							<img src = "../images/part4/1.bmp" class = "rightSideImg" onClick = "openImg('../images/part4/1.bmp')"/>
+							
+							<p>Червоним кольором відзначений вузол документа. Будь-яке звернення до DOM має починатися з обігу до даного вузла. </br> Зеленим кольором відмічені елементні вузли. Для кожного HTML елемента на сторінці браузер створює відповідний елементний вузол. </br> Вміст елементів зберігається в текстових вузлах. Текстові вузли відзначені на нашій схемі синім кольором. </br> Для шкірного атрибута HTML елемента створюсоздается Атрібутний вузол. Атрібутний вузол відзначений на схемі рожевим кольором. </br>. Різним кольором на зображення відзначені вузли різного типу.</br>Червоним кольором відзначений вузол Document . Будь-яке звернення до DOM має починатися з обігу до даного вузла .</br>Зеленим кольором відмічені елементні вузли. Для кожного HTML елемента на сторінці браузер створює відповідний елементний вузол.</br>Вміст елементів зберігається в текстових вузлах. Текстові вузли відзначені на нашій схемі синім кольором.</br>Для кожного атрибута HTML елемента створється Атрибутний вузол. Атрибутний вузол відзначений на схемі рожевим кольором.</br></p>                           <a name = "section3"></a>
+							<h1>Відносини між вузлами</h1>
+							
+							<p>Вузли в об'єктної структурі пов'язані один з одним. Існує кілька спеціальних термінів для опису відносин між вузлами </p>
+							<ul>
+                                  <li>Батьківський вузол ( parent node ) - батьківським вузлом по відношенню до даного об'єкту є вузол , в який вкладено розглянутий об'єкт. На нашій схемі по відношенню до вузлів<xmp> <h1> і <p> <body></xmp> є батьківським . Для вузла <xmp><title> </xmp>батьківським є вузол <xmp><head></xmp>.</li>
+                                  <li>Вузли - нащадки ( child node ) - вузлом - нащадком по відношенню до даного об'єкту є вузол , який вкладений у розглянутий об'єкт. На нашій схемі по відношенню до вузла <xmp><body> <h1> і <p></xmp> є нащадками . Для вузла <xmp><head></xmp> нащадком є<xmp> <title> </xmp>.</li>
+                                  <li>Вузли -брати ( sibling node ) - вузли знаходяться на однаковому рівні вкладеності по відношенню до їх батьківському вузлу. На нашій схемі вузлами - братами є <xmp><body> і <head> , <p> і <h1> </xmp>.</li>
+                                    <p>Самий верхній вузол в DOM називається кореневим . На нашій схемі кореневим є <html> (тому об'єкт document не є частиною DOM ) .</p>
+                                       <h2>Звернення до елементів</h2>
+									   <p>Умовно можна сказати що звертатися до елементів в DOM можна двома різними способами:</p>
+								<ul>
+									<li>Використовувати послідовне переміщення по об'єктному структурі до знаходження необхідного елемента .</li>
+									<li>Використовувати пряме звернення до елементу за його ідентифікатором або імені тега </li>
+								
+								</ul>
+								<p>Другий спосіб безумовно простіше і зручніше і в повсякденній практиці завжди використовують саме його. Однак у навчальних цілях корисно розібрати обидва способи .</br>Послідовне переміщення</br>Повернемося до DOM з другої глави і уявімо, що нам потрібно прочитати текстове вміст її елемента p .</br>Червоною стрілкою і чорними кружками з цифрами відзначено як послідовно буде виглядати переміщення по об'єктному структурі. </p>
+<p>Розберемо процес переміщення докладніше:</p>
+         <ol>
+          <li>Звертаємося до об'єкта document , в якому знаходиться DOM . Код на даному кроці має вигляд: document .</li>
+          <img src = "../images/part4/2.bmp" class = "rightSideImg" onClick = "openImg('../images/part4/2.bmp')"/>
+          <li>Звертаємося до кореневого вузла (тобто тегом <html> ) який знаходиться всередині об'єкта document . Код на даному кроці має вигляд: document.documentElement .</li>
+          <li>Звертаємося до другого нащадку (так як в коді сторінки body розташовується після head ) кореневого вузла. Код на даному етапі буде мати вигляд: document.documentElement.childNodes [ 1 ] . Ви також можете безпосередньо звернеться до body використовуючи наступний код (далі будемо вважати що Ви обрали цей варіант ) : document.body .</li>
+          <li>Звертаємося до другого нащадку body ( елемент p заданий у коді після h1 ) . Код на даному етапі буде мати вигляд: document.body.childNodes [ 1 ] .</li>
+          <li>Звертаємося до текстового вузлу який є першим нащадком p і дізнаємося значення його властивості . Код на даному етапі буде мати вигляд: document.body.childNodes [ 1 ] . ChildNodes [0]. NodeValue .</li>
+         </ol>
+				<p>Пряме звернення до елементу </br>За допомогою методу<b> getElementById</b> Ви можете безпосередньо звертатися до елементів по їх ідентифікатором (атрибут id), а за допомогою властивості innerHTML можна швидко зчитувати їх текстовий вміст.</p>
+                             <a name = "section4"></a>
+							<h1>DOM Маніпуляції </h1>
+							
+							<p>Для кожного елемента на сторінці браузер створює в DOM елементний вузол. </br>Кожен елементний вузол має набір визначених властивостей і методів. За допомогою цих властивостей і методів Ви можете виробляти різні маніпуляції над вмістом елементних вузлів об'єктної структури. </p>
+                                <h2>Властивості </h2>
+                                  <p>За допомогою властивості <b>innerHTML</b> Ви можете отримати доступ до вмісту текстового вузла DOM об'єкта</p>
+							<xmp>
+function change(){
+   document.getElementById("par").innerHTML="Я знаю HTML DOM>!";
+}
+function changeback(){
+   document.getElementById("par").innerHTML="Я вивчаю JavaScript.";
+}
+</xmp>
+                  <p>За допомогою властивості <b>nodeName</b> Ви можете дізнатися ім'я вузла.</p>
+<xmp>var x=document.getElementById("par").nodeName;
+document.write(x+"<br />");
+var y=document.getElementById("header").nodeName;
+document.write(y);
+</xmp>
+                   <p>За допомогою властивості <b>nodeValue</b> Ви можете дізнатися значення вузла.</p>
+<xmp>x=document.getElementById("par").childNodes[0].nodeValue;
+document.write(x+"<br />");
+</xmp>
+                 <h2>Методи HTML DOM </h2>
+
+                   <p>За допомогою методу <b>getElementById ()</b> Ви можете звернутися до елементу з вказаним id</p>
+<xmp>function change(){
+   document.getElementById("par").innerHTML="Я знаю HTML DOM>!";
+}</xmp>
+                   <p>За допомогою методу <b>getElementsByTagName ()</b> Ви можете звернутися до всіх елементів з вказаним ім'ям тега. Метод повертає масив елементів. Нумерація елементів у масиві починається з 0.</p>
+<xmp>
+var x=document.getElementsByTagName("p")[0].innerHTML;
+document.write(x+"<br />");
+var y=document.getElementsByTagName("p")[1].innerHTML;
+document.write(y);
+</xmp>
+                   <p>За допомогою методу <b>createElement ()</b> Ви можете створити елемент.</br>За допомогою методу <b>appendChild () </b>Ви можете вставити створений елемент в довільний вузол.</p>
+<xmp>var i=0;
+function elCreate(){
+   var newpar = document.createElement("p");
+   i++;
+   document.body.appendChild(newpar).innerHTML="<b>Я створив элемент номер "+i+"</b>.";
+}</xmp>
+                   <p>За допомогою методу <b>removeChild ()</b> Ви можете видалити вузол нащадок з елемента.Даний метод повертає віддалений вузол.<p>
+<xmp>
+function mvParFrom(){
+   var rcont = document.getElementById("container");
+   var rpar= document.getElementById("par");
+   var rel=rcont.removeChild(rpar);
+   document.getElementById("res").innerHTML=rel.innerHTML;
+   }
+function mvParTo(){
+   document.getElementById("cont").style.display="none";
+   document.getElementById("container").appendChild(document.getElementById("res"));
+}
+</xmp>
+ <a name = "section5"></a>
+ <h1>Події</h1>
+    <p>Код переданий подіям буде виконаний після того , як відбудуться дії , які активують дану подію. У кожної події різні активують дії .</p>
+
+Приклади активують дій :
+   <ul>
+     <li>Клацання миші (подія <b>onclick</b> ) і подвійне клацання миші (подія <b>ondblclick</b> ) .</li>
+     <li>Натискання клавіші (<b> onkeypress</b> ) .</li>
+     <li> форми (<b> onsubmit</b> ) .</li>
+     <li>Наведення курсору миші на елемент (<b> onmouseover</b> ) або виведення курсору миші за межі його меж (<b> onmouseout </b>) .</li>
+     <li>Повне завантаження сторінки або картинки ( <b>onload </b>) .</li>
+     <li>Зміна вмісту елементу , наприклад вмісту текстового поля форми ( <b>onchange</b> ) .</li>
+   </ul>
+      <p>Події можуть безпосередньо містити код , який буде виконуватися :</p>
+<xmp><input type="button" value="натиснути" onclick='alert("Ви натиснули на кнопку");'/></xmp>
+        <p>Либо вызывать функцию, которая содержит необходимый код:</p>
+<xmp>function dispMes(){
+   alert("Ви натиснули на кнопку ");
+}
+....
+<input type="button" value=" натиснути " onclick="dispMes()"/>
+</xmp>
+       <p>Подія <b>onmouseover</b> і <b>onmouseout </b></br>Код переданий події <b>onmouseover</b> буде виконаний при наведенні курсору миші на елемент. </br>Код переданий події <b>onmouseout</b> буде виконаний при виведенні курсора з кордонів елемента.</p>
+<xmp>
+function start(){
+   document.getElementById("par1").style.color="red";
+}
+function stop(){
+   document.getElementById("par1").style.color="black";
+}
+....
+<p id="par1" onmouseover="start()" onmouseout="stop()">наведіть курсор.</p>
+</xmp>
+<a name = "section6"></a>
+<h1>Об'єкт style</h1> 
+
+   <p>Оформлення будь-якого елемента можна змінювати з скриптів за допомогою об'єкту style.</p>
+<xmp>
+<html>
+<head>
+<script type='text/javascript'>
+function start()
+{
+document.getElementById('elp').style.color='red';
+document.getElementById('elp').style.fontWeight='bold';
+}
+</script>
+</head>
+<body>
+<p id='elp' onclick='start()'>клацніть мишкою.</p>
+</body>
+</html>
+</xmp>
+<a name = "section7"></a>
+ <h1>Ієрархія основних об'єктів javascript</h1>
+ <img src = "../images/part4/3.bmp" class = "rightSideImg" onClick = "openImg('../images/part4/3.bmp')"/>
+ <h2>Об'єкт Window </h2>
+
+<p>Об'єкт Window являє собою відкрите вікно браузера. </br>Даний об'єкт є кореневим і всі властивості, методи, функції і навіть змінні є його властивостями і методами.</p>
+<b>Методи </b>
+ <ul>
+   <li>alert ( ) Викликає вікно оповіщення , яке містить текст повідомлення і клавішу ОК .</li>
+   <li>close ( ) Закриває вікно.</li>
+   <li>confirm ( ) Викликає вікно підтвердження містить текст повідомлення і клавіші ОК і Скасувати .</li>
+   <li>focus ( ) Робить вікно активним .</li>
+   <li>moveBy ( ) Зміщує вікно щодо його поточної позиції.</li>	
+   <li>moveTo ( ) Переміщає вікно на зазначену позицію.</li>
+   <li>open ( ) Відкриває нове вікно браузера .</li>
+   <li>print ( ) Роздруковує вміст поточного вікна .</li>
+   <li>prompt ( ) Викликає вікно запиту , що спонукає відвідувача ввести в нього певні дані .</li>
+   <li>scrollBy ( ) Прокручує вміст вікна на вказану кількість пікселів .</li>
+   <li>scrollTo ( ) Прокручує вміст вікна до зазначених координат.</li>
+   <li>setInterval ( ) Викликає функцію або виконує код через певні проміжки часу ( зазначені в мілісекундах ) .</li>
+   <li>setTimeout ( ) Викликає функцію або виконує код після зазначеної кількості мілісекунд один раз.</li>
+ </ul>
+<xmp>
+var win;
+function openw() {
+win = window.open();
+}
+function closew() {
+if (win != null) { win.close(); }
+}
+
+
+function scrolldown()
+{
+scrollBy(0,100);
+}
+function scrollup()
+{
+scrollBy(0,-100);
+}
+</xmp>
+  <h2>Властивості об'єкта Document</h2>
+
+  <p>За допомогою даного об'єкта Ви зможете додавати , змінювати і видаляти HTML елементи на сторінці з скриптів .</p>
+
+        <h3>Властивість </h3>
+ <ul>
+   <li>anchors Повертає масив містить всі закладки наявні на сторінці .</li>
+   <li>cookie Повертає cookie пов'язані з даним документом.</li>
+   <li>document.doctype Дозволяє дізнатися doctype документа .</li>
+   <li>domain Повертає доменне ім'я сервера , на якому розміщується даний документ.</li>
+   <li>forms Повертає масив містить всі форми наявні на сторінці .</li>
+   <li>images Повертає масив містить всі картинки наявні на сторінці .</li>
+   <li>document.lastModified Дозволяє дізнатися коли останній раз був модифікований документ.</li>
+   <li> Повертає масив містить всі посилання наявні на сторінці .</li>
+   <li> Повертає URL сторінки з якої був здійснений перехід на дану.</li>
+   <li>document.readyState Дозволяє дізнатися статус завантаження документа .</li>
+   <li>title Встановлює або повертає заголовок документа .</li>
+   <li>URL Повертає поточний URL .</li>
+ </ul>
+          <h3>Методи об'єкта Document</h3>
+
+ <ul>
+  <li>createElement Створює елемент .</li>
+  <li>getElementById Дозволяє звернутися до елементу з вказаним id .</li>
+  <li>getElementsByName Дозволяє звернутися до всіх елементів на сторінці з вказаним ім'ям .</li>
+  <li>getElementsByTagName Дозволяє звернутися до всіх зазначених тегах на сторінці .</li>
+  <li>write Виводить переданий текст на сторінку .</li>
+ <li>writeln Виводить переданий текст на сторінку , відступаючи при цьому новий рядок , після кожного виведення </li>
+ </ul>
+   <h2>Oб'єкт Location </h2>
+      <p>У об'єкті Location зберігаються інформацію про поточний URL.</p>  
+        <h3>Властивості об'єкта Location </h3>
+  <ul>
+   <li>hash Повертає частину URL містить якорі.</li>  
+   <li>host Повертає частину URL містить назву домену сайту.</li> 
+   <li>href Повертає URL цілком. </li>
+   <li>pathname Повертає частину URL містить шлях до завантаженого документу. </li>
+   <li>protocol Повертає частину URL містить назву протоколу. </li>
+   <li>search Повертає частину URL містить передаються запити. </li>
+  </ul>
+     <h3>Методи об'єкта Location.</h3>
+  <ul>
+   <li>assign () Завантажує новий документ в тому ж вікні браузера.</li> 
+   <li>reload () Завантажує документ заново.</li>
+  </ul>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+			<tr><td id = "pageBottom">(c) Ярослав Боровий</td></tr>
+		</table>
+	</body>
+</html>

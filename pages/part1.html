@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<link rel = "stylesheet" type = "text/css" href = "../styles/style.css" />
+		<link rel = "icon" type = "image/x-icon" href = "../images/js-logo.png" />
+		<script src = "../scripts/scripts.js"></script>
+		<script>var numOfImages = 7;</script>
+		<title>Основи</title>
+	</head>
+	
+	<body>
+		<table id = "imageViewer" cellspacing = 0 cellpadding = 0>
+			<tr><td id = "imageViewerTopLine">
+				<table id = "imageViewerTopLineT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td onClick = "zoomOut()"><img src = "../images/zoom-out.png" height = 30 /></td>
+						<td onClick = "zoomIn()"><img src = "../images/zoom-in.png" height = 30 /></td>
+						<td style = "width:100%"></td>
+						<td onClick = "closeImg()"><img src = "../images/exit.png" height = 30 /></td>
+					</tr>
+				</table>
+			</td></tr>
+			<tr><td>
+				<table id = "imageViewerContentT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td class = "arrow" id = "leftArrow" onClick = "gotoPrev()">
+							<img src = "../images/leftArrow.png" style = "width: 50px;" />
+						</td>
+						<td id = "imageViewerImagePlace"></td>
+						<td class = "arrow" id = "rightArrow" onClick = "gotoNext()">
+							<img src = "../images/rightArrow.png" style = "width: 50px;" />
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+		</table>
+		<table id = "page" cellspacing = 0 cellpadding = 0>
+			<tr><td id = "pageTop">
+				<table id = "pageTopT" cellspacing = 0 cellpadding = 0>
+					<tr><td id = "topCaption">
+						<img src = "../images/js-logo.png" style = "height: 100px;" />
+					</td></tr>
+					<tr><td id = "topMenu">
+						<table id = "topMenuT" cellspacing = 0 cellpadding = 0>
+							<tr>
+								<td id = "part1" onClick = "window.open('part1.html', '_self')">Основи</td>
+								<td id = "part2" onClick = "window.open('part2.html', '_self')">Синтаксис</td>
+								<td id = "part4" onClick = "window.open('part4.html', '_self')">DOM</td>
+								<td id = "part5" onClick = "window.open('part5.html', '_self')">Застосування</td>
+								<!-- <td id = "part6" onClick = "window.open('part6.html', '_self')">Література</td> -->
+							</tr>
+						</table>
+					</td></tr>
+				</table>
+			</td></tr>
+			<tr><td id = "pageMiddle">
+				<table id = "pageMiddleT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td id = "leftMenu">
+							<table id = "leftMenuT" cellspacing = 0 cellpadding = 0>
+								<caption>Розділи:</caption>
+								<tr><td><a href = "#n1">Мова JavaScript</a></td></tr>
+								<tr><td><a href = "#n2">ВОМ-об'єкти</a></td></tr>
+								<tr><td><a href = "#n3">Вставка скрипта</a></td></tr>
+							</table>
+						</td>
+						<td id="content"">
+							<h1 id = "n1">Мова Javascript</h1>
+							<p>Javascript - це мульти-парадигмова мова програмування: об'єктно-орієтнована(прототипна), імперативна, функціональна, скриптова мова.
+							<br><b>Особливості мови:</b> наслідування обєктів відбувається прототипно, наявні функції першого класу, анонімні функції,  змінним статично не надаються типи: тип змінної може змінюватися під час її використання відповідно до значення.</br>
+							<br>Обєктами в Javascript є форми, зображення, гіпертекстові посилання та інші компоненти web-сторінки, HTML-документ, що відображається у вікні браузера, вікно браузера і навіть сам браузер.</br>
+							</p>
+							
+							<p>Основна ідея JavaScript – можливість опрацювання атрибутів HTML-контейнерів і властивостей середовища відображення в процесі перегляду HTML-сторінки користувачем. При цьому перезавантаження сторінки не відбувається.</p>
+							Javascript можна використовувати щоб: 
+							<ul>
+								<li>Змінювати елементи HTML</li>
+								<li>Видаляти елементи HTML</li>
+								<li>Створювати нові HTML елементи</li>
+								<li>Копіювати чи клонувати HTML елементи</li>
+							</ul>
+							<img src = "../images/part1/1.png" class = "leftSideImg" onClick = "openImg('../images/part1/1.png')"/>
+							<img src = "../images/part1/2.png" class = "rightSideImg" onClick = "openImg('../images/part1/2.png')"/>
+							<p>Мова Javascript виникла у 1995 році. Розробник - компанія Netscape Communications, автор - Брендон Айк. Спочатку мова називалась Livescript. Ключові принципи були взяті з мов Self і Sheme. У 1996 Microsoft випутив аналог Javascript - JScript. Першим браузром, який підтримував цю реалізації був Internet Explorer 3.0.</p>
+							<p>Javascript базується на мові Ecmascript. На сьогодні всі сучасні браузери підтримують Esmacsript5.1. Остання версія Javascript - 1.8.5</p>
+							<img src = "../images/part1/3.png" class = "rightSideImg" onClick = "openImg('../images/part1/3.png')"/>
+							<h1 id = "n2">BOM-об'єкти</h1>
+							<p>Через BOM-об'єктів можна керувати поведінкою браузера за допомого Javascript.</p>
+							<ul>
+								<li><b>Navigator</b>
+								<br>navigator.userAgent - інформація про браузер.</br>
+								navigator.platform - інформація про платформу, відрізняє Windows/Linux/Mac..
+								<br>navigator.appVersion</br>
+								navigator.cookieEnabled
+								</li>
+								<li><b>Screen</b><br>screen.width/height/colordepth - інформація про екран.</br></li>
+								<li><b>Location</b>
+								<br>Можна дізнатись будь-яку інформацію про поточний URL.</br></li>
+								</li>
+								
+								<li><b>History</b><br>Зберігає список відвіданих URL в цьому вікні браузера.</br>
+								history.length
+								<br>history.go()</br>
+								</li>	
+								<li><b>Frame, timing, cookies</b></li>			
+							</ul>
+							<div style="font-family:'Terminal'; font-size: 14pt; border: 3px dashed #a77" id="info">
+								<script>
+								var txt = document.getElementById ("info");
+								txt.innerHTML = txt.innerHTML + "<b>User Agent</b>: " + navigator.userAgent + "<br\>";
+								txt.innerHTML = txt.innerHTML + "<b>Platform</b>: " + navigator.platform + "<br\>";
+								txt.innerHTML = txt.innerHTML + "<b>Screen</b>: " + screen.width + "x" + screen.height + "@" + screen.colordepth + "<br\>";
+								txt.innerHTML = txt.innerHTML + "<b>Location</b>: " + location + "<br\>";
+								</script>
+								</div>
+								<table cellspacing = 30 cellpadding = 0 style = "margin: 0 auto;">
+									<tr>
+										<td><img src = "../images/part1/4.png" onClick = "openImg('../images/part1/4.png')" /></td>
+										<td><img src = "../images/part1/5.png" onClick = "openImg('../images/part1/5.png')" /></td>
+									</tr>
+								</table>
+							<h1 id = "n3">Вставка скрипта</h1>
+							<table style = "margin: 0 auto;">
+								<tr>
+									<td style = "vertical-align: top"><b>1) </b>В коді HTML-сторінки</td>
+									<td><img src = "../images/part1/6.png" class = "rightSideImg" onClick = "openImg('../images/part1/6.png')"/></td>
+								<tr>
+									<td style = "vertical-align: top"><b>2) </b>Зовнішній файл</td>
+									<td><img src = "../images/part1/7.png" class = "rightSideImg" onClick = "openImg('../images/part1/7.png')"/></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+			<tr><td id = "pageBottom">(c) Іра Вахнянин</td></tr>
+		</table>
+	</body>
+</html>

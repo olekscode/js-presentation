@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<link rel = "stylesheet" type = "text/css" href = "../styles/style.css" />
+		<link rel = "icon" type = "image/x-icon" href = "../images/js-logo.png" />
+		<script src = "../scripts/scripts.js"></script>
+		<script>var numOfImages = 0;</script>
+		<title>Синтаксис</title>
+	</head>
+	
+	<body>
+		<table id = "imageViewer" cellspacing = 0 cellpadding = 0>
+			<tr><td id = "imageViewerTopLine">
+				<table id = "imageViewerTopLineT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td onClick = "zoomOut()"><img src = "../images/zoom-out.png" height = 30 /></td>
+						<td onClick = "zoomIn()"><img src = "../images/zoom-in.png" height = 30 /></td>
+						<td style = "width:100%"></td>
+						<td onClick = "closeImg()"><img src = "../images/exit.png" height = 30 /></td>
+					</tr>
+				</table>
+			</td></tr>
+			<tr><td>
+				<table id = "imageViewerContentT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td class = "arrow" id = "leftArrow" onClick = "gotoPrev()">
+							<img src = "../images/leftArrow.png" style = "width: 50px;" />
+						</td>
+						<td id = "imageViewerImagePlace"></td>
+						<td class = "arrow" id = "rightArrow" onClick = "gotoNext()">
+							<img src = "../images/rightArrow.png" style = "width: 50px;" />
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+		</table>
+		<table id = "page" cellspacing = 0 cellpadding = 0>
+			<tr><td id = "pageTop">
+				<table id = "pageTopT" cellspacing = 0 cellpadding = 0>
+					<tr><td id = "topCaption">
+						<img src = "../images/js-logo.png" style = "height: 100px;" />
+					</td></tr>
+					<tr><td id = "topMenu">
+						<table id = "topMenuT" cellspacing = 0 cellpadding = 0>
+							<tr>
+								<td id = "part1" onClick = "window.open('part1.html', '_self')">Основи</td>
+								<td id = "part2" onClick = "window.open('part2.html', '_self')">Синтаксис</td>
+								<td id = "part4" onClick = "window.open('part4.html', '_self')">DOM</td>
+								<td id = "part5" onClick = "window.open('part5.html', '_self')">Застосування</td>
+								<!-- <td id = "part6" onClick = "window.open('part6.html', '_self')">Література</td> -->
+							</tr>
+						</table>
+					</td></tr>
+				</table>
+			</td></tr>
+			<tr><td id = "pageMiddle">
+				<table id = "pageMiddleT" cellspacing = 0 cellpadding = 0>
+					<tr>
+						<td id = "leftMenu">
+							<table id = "leftMenuT" cellspacing = 0 cellpadding = 0>
+								<caption>Розділи:</caption>
+								<tr><td><a href = "#section1">Заголовок1</a></td></tr>
+								<tr><td><a href = "#section2">Заголовок2</a></td></tr>
+								<tr><td><a href = "#section3">Заголовок3</a></td></tr>
+							</table>
+						</td>
+						<td id = "content">
+							<p>JavaScript чутлива до регістру мова.</br>
+Online, onLine ONLINE це імена різних змінних.</br>
+Після кожного виразу ставиться крапка з комою.</br> 
+ x = 5;</br>
+ Перехід на новий рядок також рахується як закінчення виразу</br>
+ <div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+ x = 5 </br>
+ return true</br>
+ але</br>return </br>true</br>буде розумітися як</br>
+ return; </br> true;</br> 
+</div>
+Коментується код двома способами</br>
+ // це коментар</br>
+/* це також коментар */</br>
+JavaScript це мова з несуворим збереженням типів. Змінні зберігають тип, рівний типу значення</br>
+Типи:</br>
+<ul>
+	<li>Стрічки</li>
+	<li>Числа </li>
+	<li>Логічні</li>
+	<li>Об'єкти </li>
+	<li>null</li>
+	<li>undefined</li>
+</ul>
+Змінні оголошуються з допомогою ключового слова var</br>
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+	var x; // оголошення змінної x</br>
+</div>
+	Проте якщо змінній зразу буде надаватись значення, то var можна опустити.</br>
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+	х = 4 // оголошення змінної зі значенням 4</br>
+	x = true</br>
+	x = null;</br>
+</div>
+Блоки команд задаються фігурними дужками {} </br>
+	Але на відміну від C/Java він не створює окремої області видимості.
+	<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+	var i = 0;</br>
+	{</br>
+	var i = 5;</br>
+	alert(i); //5</br>
+	}</br>
+	alert(i);//5</br>
+</div>
+Стрічки можуть містити довільну кількість знаків або не містити нічого.</br>
+Стрічки оголошуються набором символів, взяті з двох сторін в одинарні або в двійні лапки.</br>
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+а = “моя” </br>
+b = ‘стрічка’
+</div>
+JavaScript об'єктна  мова. Масиви, функції, стрічки – це все об'єкти зі своїми методами та властивостями.</br> 
+Можна створювати власні об'єкти.</br>
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+var book = { </br>
+    topic: “JavaScript”, </br>
+	pages: 320 </br>
+	};
+</div>
+До полів обєкта book можна доступитися через . або [].</br>
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+ book.topic   // “JavaScript” </br>
+	book[“pages”] // 320
+ </div>
+ Також можна створити нові поля.</br>
+ <div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+ book.author = “Flanagan”;
+ book.content = {} // пусте поле
+ </div>
+ Масив можна створити декількома способами:</br>
+ <ul>
+ 	<li>Пустий масив з допомогою конструкора Array()
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">	var arr = new Array();</div></li>
+	<li>Пустий  масив з заданим розміром
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">	var arr = new Array(10);</div></li>
+	<li>Заповнений масив через Array()
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">	var arr = new Array(“red”,”green”,true,1,2,3);</div></li>
+	<li>Заповнений масив через []
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">	var arr = [“red”,”green”, true,1,2,3);</div></li>
+</ul>
+ Двовимірні масиви оголошуються як масив, в масиві.
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">var arr2 = [ [1,2,3], [4,5,6], [7,8,9] ];</div> 
+ Масиви мають наступні методи: </br>
+<ul>
+<li>	forEach() – обходить всі елемети масиву і виконує задану фінкцію.</li>
+<li>	map() – передає заданій функції елементи масиву і створює новий масив значень, що повернула функція.</li>
+<li>	filter() повертає підмножину заданого масиву.</li>
+<li>	every()повертає true якщо для всіх елеметів умова функції виконується.</li>
+<li>	some() повертає true якщо хоча б один елемент задовільняє умову функції.</li>
+<li>	indexOf() повертає позицію першого входження елемента в масив с початку.</li>
+<li>	lastIndexOf() повертає позицію першого входження елемента в масив з кінця.</li>
+</ul>
+Методи класу Array:
+<ul>
+<li>join() об'єднює всі елементи масиву у стрічку </li>
+<li>reverse() міняє послідовність елементів на зворотню</li>
+<li>sort() сортує масив в алфавітному порядку</li>
+<li>concat() додає до масиву нові елементи</li>
+<li>slice() повертає підмножину масиву в заданих межах, не змінюючи його</li>
+<li>splice() повертає підмножину масиву в заданих межах,змінюючи його</li>
+<li>push() pop() вставляє або вилучає елемент за принципом LIFO </li>
+<li>toString() перетворює кожен елемент масива в стрічку  </li>
+</ul>
+В JavaScript також визначені оператори: </br>
+<div >
+Умовні:
+   <ol>
+   <li style = "font-weight: bold;"> if ( вираз ) </br> {інструкція } </li>
+   <li style = "font-weight: bold;"> switch(вираз){ інструкція} </br> </li>
+   </ol>
+ Цикли:
+ <ol>
+ <li style = "font-weight: bold;"> for (ініціалізація; перевірка; інкримент )</br> {інструкція} </li>
+ <li style = "font-weight: bold;"> while (вираз)</br> {інструкція} </br> </li>
+ </ol>
+ </div>
+Функції – це параметризовані блоки програмного коду JavaScript, які можна викликати неодноразово.</br>
+Оголошення функції:</br>
+<span class="hlight">
+function імяФункції(аргументи)</br>
+{блок виразів;}</br>
+</span>
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+function plus1(x)</br>
+{	return x+1; }
+</div>
+Функції можна присвоювати змінним:
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+var square = function(x)</br>{ return x*x; }</br>
+square(plus1(y) ); //виклик двох функцій
+</div>
+Функції можна прив'язати до об'єкта.</br>
+Метод - це функція, яка зберігається як властивість об'єкта.</br>
+Якщо існує функція f та об'єкт о, то можна створити метод цього об'єкта:
+<div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;"> o.m = f;</div>
+ Потім даний метод можна викликати.
+ <div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;"> o.m();</br> або </br> o["m"](); </div>
+ У кожного метода та функції є своя лексична область видимості. </br>
+ <div style= "border:2px solid #aa0000; background: #F8E4DF; padding: 15px;
+ border-radius:9px; font-size:14px; font-family: TimesNewRoman;">
+var a=1;</br>
+function go(){var a= 6;}</br>
+go();</br>
+alert(a);// a= 1;
+</br> </div>
+  
+ </div>
+
+</p>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+			<tr><td id = "pageBottom">(c) Сергій Бойко</td></tr>
+		</table>
+	</body>
+</html>
